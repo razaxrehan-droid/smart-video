@@ -39,7 +39,7 @@
 <body class="text-slate-100 min-h-screen flex flex-col items-center p-4 md:p-8">
 
     <!-- Top Main Header & Notice -->
-    <div class="w-full max-w-4xl bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl p-6 md:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] text-center relative overflow-hidden mb-8">
+    <div class="w-full max-w-4xl bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl p-6 md:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] text-center relative overflow-hidden mb-6">
         
         <!-- Big Bold Styled Web Name -->
         <h1 class="font-brand font-extrabold text-5xl md:text-7xl uppercase tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400 mb-2 select-none drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]">
@@ -63,12 +63,22 @@
         </div>
     </div>
 
-    <!-- 2-Column Grid Area (Ek line main 2 name) -->
-    <div class="w-full max-w-4xl grid grid-cols-2 gap-4 md:gap-6 mb-12">
+    <!-- Live Search Bar Container -->
+    <div class="w-full max-w-4xl mb-8">
+        <div class="relative">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400">
+                <i class="fas fa-magnifying-glass"></i>
+            </span>
+            <input type="text" id="search-input" onkeyup="filterVideos()" placeholder="Search directory name..." class="w-full pl-12 pr-4 py-3.5 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:border-purple-500/60 backdrop-blur-md text-white placeholder-slate-500 text-sm md:text-base shadow-lg transition-all">
+        </div>
+    </div>
+
+    <!-- 2-Column Grid Area -->
+    <div id="video-grid" class="w-full max-w-4xl grid grid-cols-2 gap-4 md:gap-6 mb-12">
         
         <!-- 1. FATIMA JATAOI -->
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
-            <div class="font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
                 FATIMA JATAOI
             </div>
             <a href="https://n.f-a-k.workers.dev/fatima-jatoi-tiktoke.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
@@ -77,8 +87,8 @@
         </div>
 
         <!-- 2. SAMIYA HIJAB 1 -->
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
-            <div class="font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
                 SAMIYA HIJAB 1
             </div>
             <a href="https://n.f-a-k.workers.dev/samiya-hijab-tiktoke.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
@@ -87,8 +97,8 @@
         </div>
 
         <!-- 3. SAMIYA HIJAB 2 -->
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
-            <div class="font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
                 SAMIYA HIJAB 2
             </div>
             <a href="https://n.f-a-k.workers.dev/samiya-hijab-nude.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
@@ -97,8 +107,8 @@
         </div>
 
         <!-- 4. SANORITA -->
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
-            <div class="font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
                 SANORITA
             </div>
             <a href="https://n.f-a-k.workers.dev/tiktoker-sanorita-se.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
@@ -107,8 +117,8 @@
         </div>
 
         <!-- 5. IMSHA -->
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
-            <div class="font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
                 IMSHA
             </div>
             <a href="https://n.f-a-k.workers.dev/imsha-gawk-gawk-bhee.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
@@ -117,8 +127,8 @@
         </div>
 
         <!-- 6. NADEEM NANI -->
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
-            <div class="font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
                 NADEEM NANI
             </div>
             <a href="https://n.f-a-k.workers.dev/tiktoker-nadeem-nani.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
@@ -127,8 +137,8 @@
         </div>
 
         <!-- 7. JANNAT MIRZA -->
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
-            <div class="font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
                 JANNAT MIRZA
             </div>
             <a href="https://n.f-a-k.workers.dev/jannat-mirza.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
@@ -137,8 +147,8 @@
         </div>
 
         <!-- 8. UMAIR MAIRE -->
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
-            <div class="font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
                 UMAIR MAIRE
             </div>
             <a href="https://n.f-a-k.workers.dev/umairi-wali-leaked-v.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
@@ -147,8 +157,8 @@
         </div>
 
         <!-- 9. MAYA G -->
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
-            <div class="font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
                 MAYA G
             </div>
             <a href="https://n.f-a-k.workers.dev/maya-g-tiktoker-1.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
@@ -157,8 +167,8 @@
         </div>
 
         <!-- 10. AROOB JATAOI -->
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
-            <div class="font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
                 AROOB JATAOI
             </div>
             <a href="https://n.f-a-k.workers.dev/ducky-wife-aroob-jat-kcka.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
@@ -166,10 +176,10 @@
             </a>
         </div>
 
-        <!-- 11. SILENT GIRL SAILKOT -->
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
-            <div class="font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
-                SILENT GIRL SAILKOT
+        <!-- 11. SILENT GIRL SIALKOT -->
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+                SILENT GIRL SIALKOT
             </div>
             <a href="https://n.f-a-k.workers.dev/bawa-g-sialkot-nude.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
                 <i class="fas fa-play text-[10px]"></i> WATCH VIDEO
@@ -177,8 +187,8 @@
         </div>
 
         <!-- 12. MAAN DOGAR -->
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
-            <div class="font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
                 MAAN DOGAR
             </div>
             <a href="https://n.f-a-k.workers.dev/maan-dogar-leaked-vi.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
@@ -187,8 +197,8 @@
         </div>
 
         <!-- 13. RAJAB BUTT -->
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
-            <div class="font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
                 RAJAB BUTT
             </div>
             <a href="https://n.f-a-k.workers.dev/rajab-butt-snapchat-.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
@@ -197,8 +207,8 @@
         </div>
 
         <!-- 14. ALINA AMIR -->
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
-            <div class="font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
                 ALINA AMIR
             </div>
             <a href="https://n.f-a-k.workers.dev/tiktoker-alina-amir-.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
@@ -206,12 +216,200 @@
             </a>
         </div>
 
+        <!-- 15. TISSUE LE LU -->
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+                TISSUE LE LU
+            </div>
+            <a href="https://n.f-a-k.workers.dev/paki-pagal-tissue-le.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
+                <i class="fas fa-play text-[10px]"></i> WATCH VIDEO
+            </a>
+        </div>
+
+        <!-- 16. 19 MIN 34 SEC -->
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+                19 MIN 34 SEC
+            </div>
+            <a href="https://n.f-a-k.workers.dev/tiktoker-sofik-er-mm.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
+                <i class="fas fa-play text-[10px]"></i> WATCH VIDEO
+            </a>
+        </div>
+
+        <!-- 17. SAJAL MALIK -->
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+                SAJAL MALIK
+            </div>
+            <a href="https://n.f-a-k.workers.dev/sajal-malik-fucking-.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
+                <i class="fas fa-play text-[10px]"></i> WATCH VIDEO
+            </a>
+        </div>
+
+        <!-- 18. SHARUTI ACTER -->
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+                SHARUTI ACTER
+            </div>
+            <a href="https://n.f-a-k.workers.dev/actress-shruthi-nara.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
+                <i class="fas fa-play text-[10px]"></i> WATCH VIDEO
+            </a>
+        </div>
+
+        <!-- 19. AFREEN ACTER -->
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+                AFREEN ACTER
+            </div>
+            <a href="https://n.f-a-k.workers.dev/paki-stage-actress-a.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
+                <i class="fas fa-play text-[10px]"></i> WATCH VIDEO
+            </a>
+        </div>
+
+        <!-- 20. AYESHA ASHUY -->
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+                AYESHA ASHUY
+            </div>
+            <a href="https://n.f-a-k.workers.dev/ayshu-tiktoker-leak-.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
+                <i class="fas fa-play text-[10px]"></i> WATCH VIDEO
+            </a>
+        </div>
+
+        <!-- 21. ZARNAB -->
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+                ZARNAB
+            </div>
+            <a href="https://n.f-a-k.workers.dev/tiktoker-zarnab-sext.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
+                <i class="fas fa-play text-[10px]"></i> WATCH VIDEO
+            </a>
+        </div>
+
+        <!-- 22. DR EMAN -->
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+                DR EMAN
+            </div>
+            <a href="https://n.f-a-k.workers.dev/dr-eman-ali-video.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
+                <i class="fas fa-play text-[10px]"></i> WATCH VIDEO
+            </a>
+        </div>
+
+        <!-- 23. MINAHIL MALIK -->
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+                MINAHIL MALIK
+            </div>
+            <a href="https://n.f-a-k.workers.dev/minahil-malik-pakist.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
+                <i class="fas fa-play text-[10px]"></i> WATCH VIDEO
+            </a>
+        </div>
+
+        <!-- 24. HAREEM SHAH -->
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+                HAREEM SHAH
+            </div>
+            <a href="https://n.f-a-k.workers.dev/paki-tiktoker-hareem.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
+                <i class="fas fa-play text-[10px]"></i> WATCH VIDEO
+            </a>
+        </div>
+
+        <!-- 25. MARVI CHAUDRY -->
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+                MARVI CHAUDRY
+            </div>
+            <a href="https://n.f-a-k.workers.dev/tiktoker-marvi-chaud.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
+                <i class="fas fa-play text-[10px]"></i> WATCH VIDEO
+            </a>
+        </div>
+
+        <!-- 26. NEHA MALIK -->
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+                NEHA MALIK
+            </div>
+            <a href="https://n.f-a-k.workers.dev/neha-malik-nude.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
+                <i class="fas fa-play text-[10px]"></i> WATCH VIDEO
+            </a>
+        </div>
+
+        <!-- 27. SOMA MOHSIN -->
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+                SOMA MOHSIN
+            </div>
+            <a href="https://n.f-a-k.workers.dev/sooma-mohsin-nude.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
+                <i class="fas fa-play text-[10px]"></i> WATCH VIDEO
+            </a>
+        </div>
+
+        <!-- 28. SEHAR ANJUM -->
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+                SEHAR ANJUM
+            </div>
+            <a href="https://n.f-a-k.workers.dev/sehar-anjum-leaked.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
+                <i class="fas fa-play text-[10px]"></i> WATCH VIDEO
+            </a>
+        </div>
+
+        <!-- 29. FATIMA TAHIR -->
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+                FATIMA TAHIR
+            </div>
+            <a href="https://n.f-a-k.workers.dev/fatima-tahir-3.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
+                <i class="fas fa-play text-[10px]"></i> WATCH VIDEO
+            </a>
+        </div>
+
+        <!-- 30. ALIZA SEHAR -->
+        <div class="video-card bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between items-center text-center backdrop-blur-md hover:border-purple-500/40 transition-all group">
+            <div class="card-title font-bold text-sm md:text-lg tracking-wide text-white uppercase mb-4 h-12 flex items-center justify-center">
+                ALIZA SEHAR
+            </div>
+            <a href="https://n.f-a-k.workers.dev/aliza-sehar-video.mp4" target="_blank" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs md:text-sm rounded-xl shadow-md transition-all flex justify-center items-center gap-2">
+                <i class="fas fa-play text-[10px]"></i> WATCH VIDEO
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Telegram Channel Button Section -->
+    <div class="w-full max-w-md text-center mb-12">
+        <a href="https://t.me/THESMARTVIDEO_bot" target="_blank" class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-sky-600 hover:bg-sky-500 text-white font-bold text-base rounded-2xl shadow-[0_10px_25px_rgba(2,132,199,0.4)] transition-all transform hover:-translate-y-1">
+            <i class="fab fa-telegram text-2xl animate-bounce"></i> JOIN US ON TELEGRAM
+        </a>
     </div>
 
     <!-- Minimalist Footer -->
     <footer class="mt-auto text-center text-xs text-slate-500 font-mono tracking-wider pb-4">
         &copy; 2026 THE SMART VIDEO &bull; DESIGNED BY TEAM RAZA
     </footer>
+
+    <!-- Live Search JavaScript Logic -->
+    <script>
+        function filterVideos() {
+            const input = document.getElementById('search-input');
+            const filter = input.value.toUpperCase();
+            const cards = document.getElementsByClassName('video-card');
+
+            for (let i = 0; i < cards.length; i++) {
+                const titleElement = cards[i].getElementsByClassName('card-title')[0];
+                if (titleElement) {
+                    const textValue = titleElement.textContent || titleElement.innerText;
+                    if (textValue.toUpperCase().indexOf(filter) > -1) {
+                        cards[i].style.display = "";
+                    } else {
+                        cards[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
 
 </body>
 </html>
