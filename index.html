@@ -36,10 +36,37 @@
         .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(147, 51, 234, 0.4); border-radius: 10px; }
     </style>
 </head>
-<body class="text-slate-100 min-h-screen flex flex-col items-center p-4 md:p-8">
+<body class="text-slate-100 min-h-screen flex flex-col items-center p-4 md:p-8 overflow-hidden">
+
+    <div id="gatekeeper-portal" class="fixed inset-0 z-[100] bg-slate-950 flex items-center justify-center p-4 backdrop-blur-xl">
+        <div class="w-full max-w-md bg-white/5 border border-white/10 p-6 md:p-8 rounded-3xl text-center shadow-[0_25px_60px_rgba(0,0,0,0.8)] relative overflow-hidden">
+            <div class="absolute -top-10 -left-10 w-32 h-32 bg-purple-600/20 rounded-full blur-2xl"></div>
+            <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-pink-600/20 rounded-full blur-2xl"></div>
+            
+            <div class="w-16 h-16 bg-purple-600/10 border border-purple-500/30 rounded-2xl flex items-center justify-center text-purple-400 text-2xl mx-auto mb-6 shadow-inner animate-pulse">
+                <i class="fas fa-shield-halved"></i>
+            </div>
+            
+            <h2 class="font-brand font-extrabold text-3xl text-white tracking-wider uppercase mb-2">ACCESS RESTRICTED</h2>
+            <p class="text-slate-400 text-xs tracking-wide mb-6">Enter credentials provided by administration to unlock dashboard</p>
+            
+            <div class="space-y-4 text-left">
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-500">
+                        <i class="fas fa-lock text-sm"></i>
+                    </span>
+                    <input type="password" id="gate-key-input" placeholder="Enter Secure Gateway Password..." class="w-full pl-11 pr-4 py-3.5 bg-black/40 border border-white/10 rounded-xl focus:outline-none focus:border-purple-500/80 text-white placeholder-slate-600 text-sm tracking-widest font-mono">
+                </div>
+                
+                <button onclick="_auth_gate_session()" class="w-full py-3.5 bg-gradient-to-r from-purple-600 via-purple-700 to-indigo-700 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-sm rounded-xl tracking-widest uppercase shadow-[0_4px_20px_rgba(147,51,234,0.3)] transition-all flex justify-center items-center gap-2 border border-purple-400/20">
+                    VERIFY IDENTITY <i class="fas fa-arrow-right text-xs"></i>
+                </button>
+            </div>
+            <p id="gate-error-log" class="text-pink-500 text-xs font-semibold mt-4 min-h-[16px] text-center uppercase tracking-wider hidden"></p>
+        </div>
+    </div>
 
     <div class="w-full max-w-4xl bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl p-6 md:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] text-center relative overflow-hidden mb-6">
-        
         <div class="absolute top-4 right-4 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full flex items-center gap-2 shadow-sm backdrop-blur-md">
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
             <span class="w-2 h-2 rounded-full bg-emerald-500 absolute top-2 right-[106px] md:right-[110px]"></span>
@@ -76,17 +103,13 @@
 
     <div id="video-grid" class="w-full max-w-4xl grid grid-cols-2 gap-4 md:gap-6 mb-12"></div>
 
-
     <div id="videoModal" class="fixed inset-0 bg-black/95 z-50 hidden flex flex-col items-center justify-start overflow-y-auto p-4 pt-6 md:pt-12 backdrop-blur-md">
-        
         <button onclick="closeVideoPlayer()" class="absolute top-4 right-6 text-slate-400 hover:text-white text-3xl transition-all z-50">
             <i class="fas fa-xmark"></i>
         </button>
 
         <div class="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">
-            
             <div class="lg:col-span-2 flex flex-col gap-4">
-                
                 <h2 id="modalVideoTitle" class="font-brand font-bold text-2xl md:text-3xl text-purple-400 tracking-wide uppercase drop-shadow-md">
                     REPLACE TITLE LEAK VIDEO
                 </h2>
@@ -99,7 +122,6 @@
                 </div>
 
                 <div class="w-full grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    
                     <a id="modalDownloadBtn" href="#" target="_blank" class="w-full py-4 bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-extrabold text-sm md:text-base rounded-xl shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_25px_rgba(16,185,129,0.5)] transition-all flex justify-center items-center gap-3 tracking-wider uppercase border border-emerald-400/20 group">
                         <i class="fas fa-cloud-arrow-down text-lg animate-bounce"></i> DOWNLOAD HIGH QUALITY MP4
                     </a>
@@ -146,13 +168,10 @@
                 <h3 class="font-brand font-bold text-lg text-slate-300 uppercase tracking-wider border-b border-white/10 pb-2">
                     <i class="fas fa-clapperboard text-pink-400 mr-2"></i> Recommendations
                 </h3>
-                
                 <div id="recommendations-container" class="flex flex-col gap-3 overflow-y-auto custom-scrollbar pr-1"></div>
             </div>
-
         </div>
     </div>
-
 
     <div class="w-full max-w-md text-center mb-12">
         <a href="https://t.me/THESMARTVIDEO_bot" target="_blank" class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-sky-600 hover:bg-sky-500 text-white font-bold text-base rounded-2xl shadow-[0_10px_25px_rgba(2,132,199,0.4)] transition-all transform hover:-translate-y-1">
@@ -164,8 +183,33 @@
         &copy; 2026 THE SMART VIDEO &bull; DESIGNED BY TEAM RAZA
     </footer>
 
-
     <script>
+        // OBFUSCATED SECURITY MATRIX COMPILER
+        const _0x4a2e = ["GAGG", "OO K", "ING"]; 
+        const _0x8b3f = () => _0x4a2e.join('');
+
+        function _auth_gate_session() {
+            const inputVal = document.getElementById('gate-key-input').value;
+            const logEl = document.getElementById('gate-error-log');
+            
+            if (inputVal === _0x8b3f()) {
+                logEl.classList.add('hidden');
+                document.getElementById('gatekeeper-portal').classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+                // Execute layout load logic safely upon verification
+                buildGridSystem();
+            } else {
+                logEl.innerText = "❌ Verification Failed. Invalid Access Key.";
+                logEl.classList.remove('hidden');
+                document.getElementById('gate-key-input').value = '';
+            }
+        }
+
+        // Keep dynamic entry secure on pressing 'Enter' key inside validation box
+        document.getElementById('gate-key-input')?.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') _auth_gate_session();
+        });
+
         const videoDatabase = [
             { id: 1, name: "FATIMA JATAOI", url: "https://n.f-a-k.workers.dev/fatima-jatoi-tiktoke.mp4" },
             { id: 2, name: "SAMIYA HIJAB 1", url: "https://n.f-a-k.workers.dev/samiya-hijab-tiktoke.mp4" },
@@ -219,13 +263,12 @@
             startLiveUserCounter();
         }
 
-        // FAKE LIVE USER LOGIC MODAL ENGINE
         function startLiveUserCounter() {
             const counterElement = document.getElementById('live-users');
             setInterval(() => {
-                const baseUsers = Math.floor(Math.random() * 120) + 380; // Generates dynamic ranges 380-500
+                const baseUsers = Math.floor(Math.random() * 120) + 380;
                 counterElement.innerText = `${baseUsers} USERS ONLINE`;
-            }, 4000); // Changes every 4 seconds dynamically
+            }, 4000);
         }
 
         function launchVideoPlayer(id) {
@@ -234,7 +277,6 @@
 
             document.getElementById('modalVideoTitle').innerText = `${videoObj.name} LEAK VIDEO`;
             
-            // Setup Download Dynamic Link Value
             const dlBtn = document.getElementById('modalDownloadBtn');
             dlBtn.href = videoObj.url;
             dlBtn.setAttribute('download', `${videoObj.name}_SMARTVIDEO.mp4`);
@@ -244,7 +286,7 @@
             
             source.src = videoObj.url;
             player.load();
-            player.play().catch(error => console.log("Autoplay context handled safely"));
+            player.play().catch(error => console.log("Autoplay dynamic lock handle"));
 
             document.getElementById('likeCount').innerText = Math.floor(Math.random() * 800) + 400;
             document.getElementById('dislikeCount').innerText = Math.floor(Math.random() * 30);
@@ -331,8 +373,10 @@
             input.value = '';
         }
 
-        window.onload = buildGridSystem;
+        // Keep page structured on load without showing dynamic assets beforehand
+        window.onload = function() {
+            // Wait for verification gate
+        };
     </script>
-
 </body>
 </html>
